@@ -14,87 +14,16 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import DetailDialog from "./DetailDialog";
-
-const styles = theme => ({
-    appBar: {
-        position: 'relative',
-    },
-    icon: {
-        marginRight: theme.spacing.unit * 2,
-    },
-    heroUnit: {
-        backgroundColor: theme.palette.background.paper,
-    },
-    heroContent: {
-        maxWidth: 600,
-        margin: '0 auto',
-        padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
-    },
-    heroButtons: {
-        marginTop: theme.spacing.unit * 4,
-    },
-    layout: {
-        width: 'auto',
-        marginLeft: theme.spacing.unit * 3,
-        marginRight: theme.spacing.unit * 3,
-        [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
-            width: 1100,
-            marginLeft: 'auto',
-            marginRight: 'auto',
-        },
-    },
-    cardGrid: {
-        padding: `${theme.spacing.unit * 8}px 0`,
-    },
-    card: {
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-    },
-    cardMedia: {
-        paddingTop: '56.25%', // 16:9
-    },
-    cardContent: {
-        flexGrow: 1,
-    },
-    footer: {
-        backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing.unit * 2,
-    },
-});
-
-const cardParams = [
-    {
-        title: "Basic",
-        detail: "some basic information about me",
-    },{
-        title: "Work Experience",
-        detail: "my work experience.",
-    },{
-        title: "Skills",
-        detail: "my IT skills.",
-    },{
-        title: "Projects",
-        detail: "some projects I've done.",
-    },{
-        title: "Education",
-        detail: "my education background.",
-    },{
-        title: "Hobbies",
-        detail: "my hobbies",
-    },{
-        title: "Expectation",
-        detail: "my expectation about job.",
-    },{
-        title: "About the Page",
-        detail: "some skills about construct this page.",
-    },
-];
-
+import IconButton from '@material-ui/core/IconButton';
+import ViewIcon from '@material-ui/icons/Pageview';
+import EditIcon from "@material-ui/icons/Edit";
+import cardParams from "../config/card.config";
+import header from "../config/header.config";
+import styles from "../config/styles.config"
+import Footer from "./Footer"
 
 class MainPage extends React.Component {
-
-
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -114,8 +43,6 @@ class MainPage extends React.Component {
         });
     };
 
-
-
     render() {
 
         const { classes } = this.props;
@@ -127,7 +54,7 @@ class MainPage extends React.Component {
                     <Toolbar>
                         <CameraIcon className={classes.icon} />
                         <Typography variant="h6" color="inherit" noWrap>
-                            Poldi Chen
+                            {header.header}
                         </Typography>
                     </Toolbar>
                 </AppBar>
@@ -136,21 +63,21 @@ class MainPage extends React.Component {
                     <div className={classes.heroUnit}>
                         <div className={classes.heroContent}>
                             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                                Poldi Chen
+                                {header.title}
                             </Typography>
                             <Typography variant="h6" align="center" color="textSecondary" paragraph>
-                                Something about Poldi Chen.
+                                {header.sub_title}
                             </Typography>
                             <div className={classes.heroButtons}>
                                 <Grid container spacing={16} justify="center">
                                     <Grid item>
                                         <Button variant="contained" color="primary">
-                                            github
+                                            view
                                         </Button>
                                     </Grid>
                                     <Grid item>
                                         <Button variant="outlined" color="primary">
-                                            blog
+                                            edit
                                         </Button>
                                     </Grid>
                                 </Grid>
@@ -165,7 +92,7 @@ class MainPage extends React.Component {
                                     <Card className={classes.card}>
                                         <CardMedia
                                             className={classes.cardMedia}
-                                            image="image/pic1.png"
+                                            image={param.image}
                                             title={param.title}
                                         />
                                         <CardContent className={classes.cardContent}>
@@ -177,12 +104,12 @@ class MainPage extends React.Component {
                                             </Typography>
                                         </CardContent>
                                         <CardActions>
-                                            <Button size="small" color="primary" onClick={() => this.handleViewClick(param)}>
-                                                View
-                                            </Button>
-                                            <Button size="small" color="primary">
-                                                Edit
-                                            </Button>
+                                            <IconButton className={classes.button} aria-label="Delete">
+                                                <ViewIcon onClick={() => this.handleViewClick(param)} color="primary" />
+                                            </IconButton>
+                                            <IconButton className={classes.button}>
+                                                <EditIcon color="primary" />
+                                            </IconButton>
                                         </CardActions>
                                     </Card>
                                 </Grid>
@@ -190,16 +117,8 @@ class MainPage extends React.Component {
                         </Grid>
                     </div>
                 </main>
-                {/* Footer */}
-                {/*<footer className={classes.footer}>*/}
-                    {/*<Typography variant="h6" align="center">*/}
-                        {/*Footer*/}
-                    {/*</Typography>*/}
-                    {/*<Typography variant="subtitle1" align="center" color="textSecondary" component="p">*/}
-                        {/*footer information.*/}
-                    {/*</Typography>*/}
-                {/*</footer>*/}
-                {/* End footer */}
+
+                <Footer />
 
                 <DetailDialog
                     dialogOpen={this.state.dialogOpen}

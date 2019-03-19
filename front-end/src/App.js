@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Album from "./components/Album";
 import MainPage from "./components/MainPage";
 
 class App extends Component {
