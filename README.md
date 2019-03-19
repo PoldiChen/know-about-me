@@ -1,2 +1,2 @@
 # know-about-me
-constructed by Spring Boot and Material UI.
+constructed by React and Material UI.
