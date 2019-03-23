@@ -1,36 +1,36 @@
 const cardParams = [
     {
-        title: "基本信息",
+        title: "Basic",
         detail: "some basic information like name, phone, email.",
-        image: "image/pp8.jpg"
+        image: "image/pic1.png"
     },{
-        title: "工作经历",
+        title: "Work Experience",
         detail: "some work experience since I've graduated.",
-        image: "image/pp1.jpg"
+        image: "image/pic1.png"
     },{
-        title: "IT技能",
+        title: "IT Skills",
         detail: "my IT skills about programing and project.",
-        image: "image/pp2.jpg"
+        image: "image/pic1.png"
     },{
-        title: "项目经验",
+        title: "Projects",
         detail: "some important projects I've done.",
-        image: "image/pp4.jpg"
+        image: "image/pic1.png"
     },{
-        title: "教育背景",
+        title: "Education",
         detail: "my education background.",
-        image: "image/pp3.jpg"
+        image: "image/pic1.png"
     },{
-        title: "期望工作",
+        title: "Target",
         detail: "my expectation about job and future.",
-        image: "image/pp5.jpg"
+        image: "image/pic1.png"
     },{
-        title: "兴趣爱好",
+        title: "Hobbies",
         detail: "my hobbies in mature time.",
-        image: "image/pp6.jpg"
+        image: "image/pic1.png"
     },{
-        title: "关于本站",
+        title: "About the Page",
         detail: "the skills to construct this page.",
-        image: "image/pp7.jpg"
+        image: "image/pic1.png"
     },
 ];
 
