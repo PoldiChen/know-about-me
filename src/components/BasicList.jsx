@@ -27,7 +27,7 @@ class BasicList extends React.Component {
     }
 
     getDetail = () => {
-        asyncFetch('GET', '/basic/2', {}, (response) => {
+        asyncFetch('GET', '/basic', {}, (response) => {
             if (response.code === 0) {
                 this.setState({
                     phone: response.data.phone,

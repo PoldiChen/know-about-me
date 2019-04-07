@@ -6,6 +6,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import BasicList from "./BasicList";
 import MyForm from "./MyForm";
+import basicColumns from "../config/basicList.config";
+
+import CommonList from "./common/CommonList"
 
 class DetailDialog extends React.Component {
 
@@ -38,7 +41,7 @@ class DetailDialog extends React.Component {
             >
                 <DialogTitle>{this.state.dialogTitle}</DialogTitle>
                 <DialogContent>
-                    <BasicList />
+                    <CommonList api="/basic" columns={basicColumns} />
                     {/*<MyForm />*/}
                 </DialogContent>
                 <DialogActions>
